@@ -17,13 +17,13 @@ function getGitHubRepo(username) {
       }
       throw new Error(response.statusText);
     })
-    .then(responseJson => displayResults(responseJson))
+    .then(responseJson => displayResults(responseJson, username))
     .catch(err => {
       $("#js-error-message").text(`Something went wrong: ${err.message}`);
     });
 }
 
-function displayResults(responseJson) {
+function displayResults(responseJson, username) {
   
   console.log(responseJson);
    // if there are previous results, remove them
